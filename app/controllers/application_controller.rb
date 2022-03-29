@@ -9,16 +9,6 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def create
-    @book = Book.new(book_params)
-    if @book.save
-      flash[:notice] = "Book was successfully created."
-    else
-      @books = Book.all
-      render "books#index"
-    end
-  end
-
   private
 
   def configure_permitted_parameters
