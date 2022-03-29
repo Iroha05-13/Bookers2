@@ -1,6 +1,24 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    user_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+  
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      flash[:notice] = "Book was successfully created."
+    else
+      @books = Book.all
+      render "books#index"
+    end
+  end
+
   private
 
   def configure_permitted_parameters
