@@ -78,3 +78,7 @@ ol, ul, dl {
     margin-right: -15px;
     margin-left: -15px;
 }
+
+#notice {
+  color: gree;
+}
