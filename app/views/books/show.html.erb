@@ -7,8 +7,8 @@
                 <tr>
                     <td>
                         <%= link_to user_path(@user.id) do %>
-                            <%= image_tag book.user_id.get_profile_image(40,40) %>
-                            <%= book.user_id.name %>
+                            <%= image_tag book.user.get_profile_image(40,40) %>
+                            <%= book.user.name %>
                         <% end %>
                     </td>
                     <td>

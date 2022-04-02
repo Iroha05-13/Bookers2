@@ -1,17 +1,17 @@
 <div class="col-md-3">
  <h2>User info</h2>
- <%= image_tag book.user_id.get_profile_image(63,63) %>
+ <%= image_tag book.user.get_profile_image(63,63) %>
  <table class="table">
   <tr></tr>
 
   <tr>
    <th>name</th>
-   <th><%= book.user_id.name %></th>
+   <th><%= book.user.name %></th>
   </tr>
 
   <tr>
    <th>introduction</th>
-   <th><%= book.user_id.introduction %></th>
+   <th><%= book.user.introduction %></th>
   </tr>
  </table>
 
