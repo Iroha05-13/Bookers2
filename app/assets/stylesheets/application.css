@@ -80,5 +80,9 @@ ol, ul, dl {
 }
 
 #notice {
-  color: gree;
+  color: green;
+}
+
+#error_explanation {
+  color: red;
 }

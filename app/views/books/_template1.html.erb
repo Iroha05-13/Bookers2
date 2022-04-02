@@ -1,6 +1,6 @@
 <div class="col-md-3">
  <h2>User info</h2>
- <%= image_tag user.get_profile_image(63,63) %>
+ <%= image_tag book.user.get_profile_image(63,63) %>
  <table class="table">
   <tr></tr>
 
@@ -16,8 +16,8 @@
  </table>
 
  <div class="row">
-  <% if user.id == current_user.id %>
-   <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block fa-solid fa-user-cog" %>
+  <% if book.user.id == current_user.id %>
+   <%= link_to edit_user_path(book.user.id), class: "btn btn-outline-secondary btn-block fa-solid fa-user-cog" %>
   <% end %>
  </div>
 
@@ -33,7 +33,7 @@
   </div>
  <% end %>
 
- <%= form_with model: book do |f| %>
+ <%= form_with model: book.new, url "/books" method: :post, local: true do |f| %>
  <div class="form-group">
   <%= f.label :title, "Title" %>
   <%= f.text_field :title, class: "form-control book_title" %>
