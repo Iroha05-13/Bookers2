@@ -1,27 +1,27 @@
 <div class="col-md-3">
  <h2>User info</h2>
- <%= image_tag book.user.get_profile_image(63,63) %>
+ <%= image_tag user.get_profile_image(63,63) %>
  <table class="table">
   <tr></tr>
 
   <tr>
    <th>name</th>
-   <th><%= book.user.name %></th>
+   <th><%= user.name %></th>
   </tr>
 
   <tr>
    <th>introduction</th>
-   <th><%= book.user.introduction %></th>
+   <th><%= user.introduction %></th>
   </tr>
  </table>
 
+<% if user.id == current_user.id %>
  <div class="row">
-  <% if book.user.id == current_user.id %>
-   <%= link_to edit_user_path(book.user.id), class: "btn btn-outline-secondary btn-block" do %>
-    <i class="fa-solid fa-user-cog"></i>
+   <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
    <% end %>
-  <% end %>
  </div>
+<% end %>
 
  <h2 class="mt-3">New Book</h2>
  <% if book.errors.any? %>
@@ -35,7 +35,7 @@
   </div>
  <% end %>
 
- <%= form_with model: Book.new, local: true do |f| %>
+ <%= form_with model: book, local: true do |f| %>
   <div class="form-group">
    <%= f.label :title, "Title" %>
    <%= f.text_field :title, class: "form-control book_title" %>
